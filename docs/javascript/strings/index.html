@@ -1,76 +1,123 @@
-<h1 id="строки">Строки</h1>
-<h2 id="устройство-строк">Устройство строк</h2>
-<ul>
-<li>Являются iterable</li>
-<li>Иммутабельные</li>
-</ul>
-<h2 id="информация-о-строке">Информация о строке</h2>
-<ul>
-<li>Длина (свойство length)</li>
-</ul>
-<h2 id="поиск-в-строке">Поиск в строке</h2>
-<p>Что можно получить при поиске:</p>
-<ul>
-<li>true  false - просто “есть  нет” подстрока в строке</li>
-<li>Индекс - конкретная позиция вхождения подстроки в строку</li>
-<li>Совпавшие значения - если использовать регулярное выражение</li>
-</ul>
-<p>Как можно искать:</p>
-<ul>
-<li>По конкретному значению</li>
-<li>По регулярному выражению</li>
-</ul>
-<p>Задачи:</p>
-<ul>
-<li>Проверить наличие подстроки
-<ul>
-<li>Строка начинается с подстроки - startsWith(подстрока): true |
-false</li>
-<li>Строка заканчивается на подстроку - endsWith(подстрока): true |
-false</li>
-<li>Подстрока находится в любом месте
-<ul>
-<li>includes(подстрока): true | false</li>
-<li>RegExp.prototype.test(регулярка): true | false</li>
-</ul></li>
-</ul></li>
-<li>Найти позицию подстроки
-<ul>
-<li>Первое вхождение
-<ul>
-<li>indexOf(подстрока): int</li>
-<li>search(регулярка): int</li>
-</ul></li>
-<li>Последнее вхождение - lastIndexOf(подстрока): int</li>
-</ul></li>
-<li>Найти и извлечь совпадения по паттерну (match, matchAll)</li>
-</ul>
-<h2 id="получить-часть-строки">Получить часть строки</h2>
-<ul>
-<li>Получить подстроку по индексам, от и до (slice, substring)</li>
-<li>Получить отдельный символ по индексу (at, charAt)</li>
-</ul>
-<h2 id="работа-с-кодом-символа">Работа с кодом символа</h2>
-<ul>
-<li>Получить код символа по индексу (codePointAt, charCodeAt)</li>
-<li>Преобразовать код символа в сам символ (String.fromCodePoint,
-String.fromCharCode)</li>
-</ul>
-<h2 id="преобразование-строки">Преобразование строки</h2>
-<ul>
-<li>Привести регистр в верхний  в нижний (toUpperCase, toLowerCase,
-toLocaleUpperCase, toLocaleLowerCase)</li>
-<li>Обрезать пустоту слева  справа  обе (trimLeft, trimRight, trim)</li>
-<li>Разбить строку на массив строк (split)</li>
-<li>Добить начало  конец строки указанными символами до указанной длины
-(padStart, padEnd)</li>
-</ul>
-<h1 id="неклассифицированные-методы">Неклассифицированные методы</h1>
-<p>repeat, replace, replaceAll</p>
-<p>normalize</p>
-<p>localeCompare</p>
-<p>concat</p>
-<p>String()</p>
-<p>raw()</p>
-<p>valueOf</p>
-<p>toWellFormed</p>
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css'>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js'></script>
+    <script>hljs.highlightAll();</script>
+    <style>* {
+  box-sizing: border-box;
+}
+
+
+html {
+  scroll-behavior: smooth;
+
+  text-align: justify;       /* Выравнивание по ширине */
+  text-align-last: left;     /* Последняя строка - по левому краю */
+  hyphens: auto;             /* Перенос слов (опционально) */
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1E1E1E;
+}
+
+
+h1 {
+  font-size: 2.5rem;
+}
+
+
+.content {
+  max-width: 800px;
+  padding: 20px;
+  margin: 0 auto;
+  background-color: #FFC6A3;
+}</style>
+</head>
+<body>
+  <section class="content">
+    <h1 id="строки">Строки</h1>
+    <h2 id="устройство-строк">Устройство строк</h2>
+    <ul>
+    <li>Являются iterable</li>
+    <li>Иммутабельные</li>
+    </ul>
+    <h2 id="информация-о-строке">Информация о строке</h2>
+    <ul>
+    <li>Длина (свойство length)</li>
+    </ul>
+    <h2 id="поиск-в-строке">Поиск в строке</h2>
+    <p>Что можно получить при поиске:</p>
+    <ul>
+    <li>true  false - просто “есть  нет” подстрока в строке</li>
+    <li>Индекс - конкретная позиция вхождения подстроки в строку</li>
+    <li>Совпавшие значения - если использовать регулярное выражение</li>
+    </ul>
+    <p>Как можно искать:</p>
+    <ul>
+    <li>По конкретному значению</li>
+    <li>По регулярному выражению</li>
+    </ul>
+    <p>Задачи:</p>
+    <ul>
+    <li>Проверить наличие подстроки
+    <ul>
+    <li>Строка начинается с подстроки - startsWith(подстрока): true |
+    false</li>
+    <li>Строка заканчивается на подстроку - endsWith(подстрока): true |
+    false</li>
+    <li>Подстрока находится в любом месте
+    <ul>
+    <li>includes(подстрока): true | false</li>
+    <li>RegExp.prototype.test(регулярка): true | false</li>
+    </ul></li>
+    </ul></li>
+    <li>Найти позицию подстроки
+    <ul>
+    <li>Первое вхождение
+    <ul>
+    <li>indexOf(подстрока): int</li>
+    <li>search(регулярка): int</li>
+    </ul></li>
+    <li>Последнее вхождение - lastIndexOf(подстрока): int</li>
+    </ul></li>
+    <li>Найти и извлечь совпадения по паттерну (match, matchAll)</li>
+    </ul>
+    <h2 id="получить-часть-строки">Получить часть строки</h2>
+    <ul>
+    <li>Получить подстроку по индексам, от и до (slice, substring)</li>
+    <li>Получить отдельный символ по индексу (at, charAt)</li>
+    </ul>
+    <h2 id="работа-с-кодом-символа">Работа с кодом символа</h2>
+    <ul>
+    <li>Получить код символа по индексу (codePointAt, charCodeAt)</li>
+    <li>Преобразовать код символа в сам символ (String.fromCodePoint,
+    String.fromCharCode)</li>
+    </ul>
+    <h2 id="преобразование-строки">Преобразование строки</h2>
+    <ul>
+    <li>Привести регистр в верхний  в нижний (toUpperCase, toLowerCase,
+    toLocaleUpperCase, toLocaleLowerCase)</li>
+    <li>Обрезать пустоту слева  справа  обе (trimLeft, trimRight,
+    trim)</li>
+    <li>Разбить строку на массив строк (split)</li>
+    <li>Добить начало  конец строки указанными символами до указанной
+    длины (padStart, padEnd)</li>
+    </ul>
+    <h1 id="неклассифицированные-методы">Неклассифицированные
+    методы</h1>
+    <p>repeat, replace, replaceAll</p>
+    <p>normalize</p>
+    <p>localeCompare</p>
+    <p>concat</p>
+    <p>String()</p>
+    <p>raw()</p>
+    <p>valueOf</p>
+    <p>toWellFormed</p>
+  </section>
+</body>
+</html>

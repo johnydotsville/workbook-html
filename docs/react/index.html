@@ -1,378 +1,433 @@
-<h1 id="компоненты">Компоненты</h1>
-<h2 id="компоненты-и-данные">Компоненты и данные</h2>
-<h3 id="хранение-данных-компонента">Хранение данных компонента</h3>
-<ul class="task-list">
-<li><label><input type="checkbox" />Состояние</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Это данные, изменение которых
-приводит к ре-рендеру компонента.</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />useState</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Инициализация</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Значением</label></li>
-<li><label><input type="checkbox" />Функция, вычисляющая и в
-возвращающая значение</label></li>
-</ul></li>
-<li><label><input type="checkbox" />Изменение</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Перезаписать состояние</label></li>
-<li><label><input type="checkbox" />Вычислить новое состояние на основе
-предыдущего</label></li>
-</ul></li>
-</ul></li>
-<li><label><input type="checkbox" />useReducer</label></li>
-</ul></li>
-<li><label><input type="checkbox" />Принципы хранения состояния</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Иммутабельность - заменяй, а не
-изменяй</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Библиотека Immer</label></li>
-</ul></li>
-</ul></li>
-<li><label><input type="checkbox" />Механика изменения состояния</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Изменение через хук &gt; Запрос на
-фактическое изменение &gt; Фактическое изменение &gt;
-Ре-рендеринг</label></li>
-</ul></li>
-<li><label><input type="checkbox" />Место хранения состояния</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />В одном компоненте может быть много
-состояний</label></li>
-<li><label><input type="checkbox" />Эти состояния хранятся как список в
-fiber-узле</label></li>
-</ul></li>
-</ul></li>
-<li><label><input type="checkbox" />Данные, изменение которых не
-приводит к ре-рендеру компонента</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />useRef</label></li>
-<li><label><input type="checkbox" />Можем мутировать эти
-данные.</label></li>
-</ul></li>
-</ul>
-<h3 id="передача-данных-в-компоненты">Передача данных в компоненты</h3>
-<ul class="task-list">
-<li><label><input type="checkbox" />Направление передачи данных</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />“Сверху вниз” - из родителя в
-дочерний компонент</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Пропсы</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Стандартные пропсы
-(children)</label></li>
-<li><label><input type="checkbox" />Наши произвольные
-пропсы</label></li>
-<li><label><input type="checkbox" />Проброс пропсов в дочерний компонент
-{…props}</label></li>
-</ul></li>
-</ul></li>
-<li><label><input type="checkbox" />“Снизу вверх” - из дочернего
-компонента в родительский</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Через колбэк</label></li>
-</ul></li>
-</ul></li>
-<li><label><input type="checkbox" />Передача данных в глубоко вложенные
-дочерние компоненты (useContext)</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Контекст, провайдер
-контекста</label></li>
-<li><label><input type="checkbox" />Использование нескольких контекстов
-(вложение контекстов друг в друга)</label></li>
-<li><label><input type="checkbox" />Обновление значения в
-контексте</label></li>
-</ul></li>
-</ul>
-<h2 id="вид-компонента">Вид компонента</h2>
-<ul class="task-list">
-<li><label><input type="checkbox" />По синтаксису создания</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Функциональный компонент
-(современно, с хуками)</label></li>
-<li><label><input type="checkbox" />Классовый компонент
-(легаси)</label></li>
-</ul></li>
-<li><label><input type="checkbox" />По управлению данными
-компонента</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Управляемый компонент (полная
-синхронизация данных из элементов с состоянием компонента)</label></li>
-<li><label><input type="checkbox" />Неуправляемый компонент (нет
-синхронизации, ручное получение значений когда надо через ссылки на
-элементы)</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Атрибут ref у
-компонента</label></li>
-<li><label><input type="checkbox" />Сохранение ссылки на реальный
-DOM-элемент (ref + useRef)</label></li>
-<li><label><input type="checkbox" />Проброс ref в самописный компонент с
-помощью функции React.forwardRef</label></li>
-</ul></li>
-</ul></li>
-</ul>
-<h2 id="жизненный-цикл-компонента">Жизненный цикл компонента</h2>
-<ul class="task-list">
-<li><label><input type="checkbox" />Этапы жизненного цикла
-компонента</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Монтирование</label></li>
-<li><label><input type="checkbox" />Рендеринг (первичный и
-ре-рендеринг)</label></li>
-<li><label><input type="checkbox" />Размонтирование</label></li>
-</ul></li>
-<li><label><input type="checkbox" />Выполнить функцию на желаемом этапе
-жизненного цикла (useEffect)</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Для разных целей, например</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Предварительная загрузка данных для
-отображения.</label></li>
-<li><label><input type="checkbox" />Различные действия по очистке
-(отписка от событий)</label></li>
-<li><label><input type="checkbox" />И т.д.</label></li>
-</ul></li>
-</ul></li>
-</ul>
-<h2 id="уникальность-компонента">Уникальность компонента</h2>
-<ul class="task-list">
-<li><label><input type="checkbox" />Зачем реакту различать
-компоненты</label></li>
-<li><label><input type="checkbox" />Уникальность однотипных компонентов
-в списках, свойство key</label></li>
-<li><label><input type="checkbox" />Уникальность по позиции в
-fiber-дереве и по типу компонента</label></li>
-</ul>
-<h2 id="оформление-компонента">Оформление компонента</h2>
-<ul class="task-list">
-<li><label><input type="checkbox" />Правила именования
-компонентов.</label></li>
-<li><label><input type="checkbox" />Использование css-стилей в
-компоненте.</label></li>
-</ul>
-<h1 id="jsx">JSX</h1>
-<ul class="task-list">
-<li><label><input type="checkbox" />Преобразование JSX в html
-(React.createElement)</label></li>
-<li><label><input type="checkbox" />Использование выражений в JSX {
-}</label></li>
-</ul>
-<h1 id="оптимизации">Оптимизации</h1>
-<h2 id="кэширование-мемоизация">Кэширование (мемоизация)</h2>
-<ul class="task-list">
-<li><label><input type="checkbox" />“Тактическая
-оптимизация”</label></li>
-<li><label><input type="checkbox" />Кэширование внутри
-компонента</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Кэширование функции
-(useCallback)</label></li>
-<li><label><input type="checkbox" />Кэширование результата выполнения
-функции (useMemo)</label></li>
-<li><label><input type="checkbox" />Массив зависимостей</label></li>
-</ul></li>
-<li><label><input type="checkbox" />Кэширование целого
-компонента</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />React.memo - “пропсы компонента
-меняются редко - кэшируй этот компонент”</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Кастомный компаратор - сами пишем
-функцию сравнения пропсов</label></li>
-</ul></li>
-<li><label><input type="checkbox" />Пример: большой список элементов,
-один изменился - остальные нет, кэширование элемента списка
-полезно.</label></li>
-</ul></li>
-</ul>
-<h2 id="ленивая-загрузка">Ленивая загрузка</h2>
-<ul class="task-list">
-<li><label><input type="checkbox" />Основной бандл и чанки</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />По умолчанию все модули собираются в
-единый бандл</label></li>
-<li><label><input type="checkbox" />Если сборщик видит динамический
-import компонента - выделяет компонент в отдельный чанк</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />С помощью хинтов можно группировать
-несколько модулей в один чанк. Хинты специфичны для каждого сборщика,
-универсального подхода нет</label></li>
-</ul></li>
-</ul></li>
-<li><label><input type="checkbox" />Ленивый компонент ErrorBoundary &gt;
-Suspense + fallback &gt; React.lazy + import()</label></li>
-<li><label><input type="checkbox" />Предзагрузка</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Вызов import() при наведении мышки
-на ссылку / при появлении ссылки во вьюпорте</label></li>
-<li><label><input type="checkbox" />Если чанк успеет загрузиться,
-ленивый компонент покажется без fallback’а</label></li>
-</ul></li>
-</ul>
-<h2 id="code-splitting">Code splitting</h2>
-<ul class="task-list">
-<li><label><input type="checkbox" />“Стратегическая
-оптимизация”</label></li>
-<li><label><input type="checkbox" />Основные 4 стратегии разделения
-кода</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Маршруты (разные страницы - в
-отдельных чанках)</label></li>
-<li><label><input type="checkbox" />Компоненты (табы, модальные окна,
-виджеты)</label></li>
-<li><label><input type="checkbox" />Библиотеки (react + react dom +
-lodash = vendor чанк, main + home = чанк нашего приложения)</label></li>
-<li><label><input type="checkbox" />Условия (авторизованные
- неавторизованные пользователи  по роли пользователя)</label></li>
-</ul></li>
-<li><label><input type="checkbox" />Плюсы</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Параллельная загрузка нескольких
-чанков быстрее, чем загрузка одного большого бандла</label></li>
-<li><label><input type="checkbox" />Кэширование чанка. Сам react +
-остальные библиотеки при обновлениях логики приложения не менялись =&gt;
-браузер может его закешировать, а загрузить только наши изменившиеся
-чанки</label></li>
-<li><label><input type="checkbox" />CDN - можно вообще не вносить либы в
-бандл, а подключать через CDN. Если пользователь пользовался другим
-приложением, которому нужны были такие же либы, то они у него уже
-закэшированы.</label></li>
-</ul></li>
-</ul>
-<h1 id="типичные-трюки-паттерны">Типичные трюки  паттерны</h1>
-<h2 id="условный-рендеринг">Условный рендеринг</h2>
-<ul class="task-list">
-<li><label><input type="checkbox" />Показать  не показать компонент в
-зависимости от условия ( &amp;&amp; )</label></li>
-<li><label><input type="checkbox" />Показать разные компоненты в
-зависимости от условия ( тернарный оператор )</label></li>
-</ul>
-<h2 id="hoc-render-props-custom-hooks">HOC + Render Props + Custom
-Hooks</h2>
-<h3 id="hoc">HOC</h3>
-<ul class="task-list">
-<li><label><input type="checkbox" />HOC - Higher-Order
-Component.</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Это паттерн, цель которого -
-“обвязать” исходный компонент дополнительной функциональностью.</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />“Сквозная функциональность”:
-логирование  телеметрия  кэширование  авторизация  etc</label></li>
-<li><label><input type="checkbox" />“Множественные дефолты” - снабдить
-исходный компонент каким-то фиксированным значением для определенных
-пропсов. Несколько HOC-ов, каждый со своим дефолтом = несколько
-вариантов пред-конфигурированного компонента</label></li>
-</ul></li>
-</ul></li>
-<li><label><input type="checkbox" />HOC - это функция, которая принимает
-исходный компонент и возвращает компонент-обертку, который внутри
-использует исходный.</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Пример на обычных функциях: исходная
-функция - расчет числа</label></li>
-</ul></li>
-</ul>
-<h3 id="render-props">Render Props</h3>
-<ul class="task-list">
-<li><label><input type="checkbox" />Основная идея - Компонент-провайдер
-+ Компонент Клиент</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Провайдер реализует какую-то
-функциональность и например имеет данные, состояние</label></li>
-<li><label><input type="checkbox" />Клиенту нужна эта функциональность и
-данные, и он при вызове Провайдера передает ему через рендер-проп
-функцию с “разметкой” (это может быть не просто JSX, а JSX + какая-то
-логика)</label></li>
-<li><label><input type="checkbox" />Провайдер эту функцию вызывает,
-передавая в нее свои данные</label></li>
-<li><label><input type="checkbox" />Т.о. клиент как бы получает от
-провайдера данные и рендерит их в своем контексте</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />В своем контексте, потому что
-функция рендера создается в контексте Клиента - “чтобы ее передать, ее
-нужно сначала создать”</label></li>
-</ul></li>
-<li><label><input type="checkbox" />Клиент и Провайдер при этом являются
-отдельными компонентами, т.е. каждый из них - это отдельный
-fiber-узел</label></li>
-</ul></li>
-<li><label><input type="checkbox" />Render Props - это старая школа
-кастомных хуков, когда они еще не появились</label></li>
-</ul>
-<h2 id="прочие">Прочие</h2>
-<ul>
-<li>IIFE в useEffect для объявления и вызова async-функций</li>
-</ul>
-<h1 id="хуки">Хуки</h1>
-<ul class="task-list">
-<li><label><input type="checkbox" />Правила использования хуков</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Используются только на верхнем
-уровне компонента (т.е. не в циклах, не в условиях, не внутри других
-хуков, а только непосредственно в теле компонента)</label></li>
-</ul></li>
-<li><label><input type="checkbox" />Кастомные хуки</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Нужны чтобы инкапсулировать логику,
-в которой используются стандартные хуки</label></li>
-<li><label><input type="checkbox" />Правило именования кастомных хуков
-(префикс use)</label></li>
-</ul></li>
-</ul>
-<h1 id="архитектура-react">Архитектура React</h1>
-<ul class="task-list">
-<li><label><input type="checkbox" />Fiber-дерево,
-fiber-узлы</label></li>
-<li><label><input type="checkbox" />Цикл обновления компонента
-“Рендеринг &gt; Реконсиляция &gt; Коммит”</label></li>
-<li><label><input type="checkbox" />Инкрементальный
-рендеринг</label></li>
-</ul>
-<h1 id="события-и-их-обработчики">События и их обработчики</h1>
-<ul class="task-list">
-<li><label><input type="checkbox" />Навешивание обработчика на событие
-компонента</label></li>
-<li><label><input type="checkbox" />Объект события</label>
-<ul class="task-list">
-<li><label><input type="checkbox" />Всплытие события (event
-propagation)</label></li>
-<li><label><input type="checkbox" />Дефолтное поведение, предотвращение
-дефолтного поведения.</label></li>
-</ul></li>
-</ul>
-<h1 id="инфраструктура">Инфраструктура</h1>
-<h2 id="переменные-окружения">Переменные окружения</h2>
-<ul>
-<li>Значение
-<ul>
-<li>При запуске приложения на локальном сервере - вычисляется на
-лету</li>
-<li>При сборке - вычисляется и инлайнится в код</li>
-</ul></li>
-<li>Правила пользования
-<ul>
-<li>Не хранить чувствительные данные в SPA</li>
-</ul></li>
-</ul>
-<h1 id="без-темы">Без темы</h1>
-<ul>
-<li>Отличия путей в fetch и путей до картинок
-<ul>
-<li>Откуда отсчитывается относительный и абсолютный путь
-<ul>
-<li>На локальном сервере и после деплоя</li>
-</ul></li>
-<li>base</li>
-<li>Корень это протокол + хост + порт. Корень и origin - это
-синонимы.</li>
-<li>Относительный путь отсчитывается от текущей страницы</li>
-<li>Абсолютный путь отсчитывается от корня</li>
-</ul></li>
-</ul>
-<h1 id="todo">TODO</h1>
-<p>useTransition, useDeferredValue</p>
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css'>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js'></script>
+    <script>hljs.highlightAll();</script>
+    <style>* {
+  box-sizing: border-box;
+}
+
+
+html {
+  scroll-behavior: smooth;
+
+  text-align: justify;       /* Выравнивание по ширине */
+  text-align-last: left;     /* Последняя строка - по левому краю */
+  hyphens: auto;             /* Перенос слов (опционально) */
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1E1E1E;
+}
+
+
+h1 {
+  font-size: 2.5rem;
+}
+
+
+.content {
+  max-width: 800px;
+  padding: 20px;
+  margin: 0 auto;
+  background-color: #FFC6A3;
+}</style>
+</head>
+<body>
+  <section class="content">
+    <h1 id="компоненты">Компоненты</h1>
+    <h2 id="компоненты-и-данные">Компоненты и данные</h2>
+    <h3 id="хранение-данных-компонента">Хранение данных компонента</h3>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Состояние</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Это данные, изменение которых
+    приводит к ре-рендеру компонента.</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />useState</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Инициализация</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Значением</label></li>
+    <li><label><input type="checkbox" />Функция, вычисляющая и в
+    возвращающая значение</label></li>
+    </ul></li>
+    <li><label><input type="checkbox" />Изменение</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Перезаписать
+    состояние</label></li>
+    <li><label><input type="checkbox" />Вычислить новое состояние на
+    основе предыдущего</label></li>
+    </ul></li>
+    </ul></li>
+    <li><label><input type="checkbox" />useReducer</label></li>
+    </ul></li>
+    <li><label><input type="checkbox" />Принципы хранения
+    состояния</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Иммутабельность - заменяй, а не
+    изменяй</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Библиотека Immer</label></li>
+    </ul></li>
+    </ul></li>
+    <li><label><input type="checkbox" />Механика изменения
+    состояния</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Изменение через хук &gt; Запрос
+    на фактическое изменение &gt; Фактическое изменение &gt;
+    Ре-рендеринг</label></li>
+    </ul></li>
+    <li><label><input type="checkbox" />Место хранения состояния</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />В одном компоненте может быть
+    много состояний</label></li>
+    <li><label><input type="checkbox" />Эти состояния хранятся как
+    список в fiber-узле</label></li>
+    </ul></li>
+    </ul></li>
+    <li><label><input type="checkbox" />Данные, изменение которых не
+    приводит к ре-рендеру компонента</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />useRef</label></li>
+    <li><label><input type="checkbox" />Можем мутировать эти
+    данные.</label></li>
+    </ul></li>
+    </ul>
+    <h3 id="передача-данных-в-компоненты">Передача данных в
+    компоненты</h3>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Направление передачи
+    данных</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />“Сверху вниз” - из родителя в
+    дочерний компонент</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Пропсы</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Стандартные пропсы
+    (children)</label></li>
+    <li><label><input type="checkbox" />Наши произвольные
+    пропсы</label></li>
+    <li><label><input type="checkbox" />Проброс пропсов в дочерний
+    компонент {…props}</label></li>
+    </ul></li>
+    </ul></li>
+    <li><label><input type="checkbox" />“Снизу вверх” - из дочернего
+    компонента в родительский</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Через колбэк</label></li>
+    </ul></li>
+    </ul></li>
+    <li><label><input type="checkbox" />Передача данных в глубоко
+    вложенные дочерние компоненты (useContext)</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Контекст, провайдер
+    контекста</label></li>
+    <li><label><input type="checkbox" />Использование нескольких
+    контекстов (вложение контекстов друг в друга)</label></li>
+    <li><label><input type="checkbox" />Обновление значения в
+    контексте</label></li>
+    </ul></li>
+    </ul>
+    <h2 id="вид-компонента">Вид компонента</h2>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />По синтаксису создания</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Функциональный компонент
+    (современно, с хуками)</label></li>
+    <li><label><input type="checkbox" />Классовый компонент
+    (легаси)</label></li>
+    </ul></li>
+    <li><label><input type="checkbox" />По управлению данными
+    компонента</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Управляемый компонент (полная
+    синхронизация данных из элементов с состоянием
+    компонента)</label></li>
+    <li><label><input type="checkbox" />Неуправляемый компонент (нет
+    синхронизации, ручное получение значений когда надо через ссылки на
+    элементы)</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Атрибут ref у
+    компонента</label></li>
+    <li><label><input type="checkbox" />Сохранение ссылки на реальный
+    DOM-элемент (ref + useRef)</label></li>
+    <li><label><input type="checkbox" />Проброс ref в самописный
+    компонент с помощью функции React.forwardRef</label></li>
+    </ul></li>
+    </ul></li>
+    </ul>
+    <h2 id="жизненный-цикл-компонента">Жизненный цикл компонента</h2>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Этапы жизненного цикла
+    компонента</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Монтирование</label></li>
+    <li><label><input type="checkbox" />Рендеринг (первичный и
+    ре-рендеринг)</label></li>
+    <li><label><input type="checkbox" />Размонтирование</label></li>
+    </ul></li>
+    <li><label><input type="checkbox" />Выполнить функцию на желаемом
+    этапе жизненного цикла (useEffect)</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Для разных целей,
+    например</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Предварительная загрузка данных
+    для отображения.</label></li>
+    <li><label><input type="checkbox" />Различные действия по очистке
+    (отписка от событий)</label></li>
+    <li><label><input type="checkbox" />И т.д.</label></li>
+    </ul></li>
+    </ul></li>
+    </ul>
+    <h2 id="уникальность-компонента">Уникальность компонента</h2>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Зачем реакту различать
+    компоненты</label></li>
+    <li><label><input type="checkbox" />Уникальность однотипных
+    компонентов в списках, свойство key</label></li>
+    <li><label><input type="checkbox" />Уникальность по позиции в
+    fiber-дереве и по типу компонента</label></li>
+    </ul>
+    <h2 id="оформление-компонента">Оформление компонента</h2>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Правила именования
+    компонентов.</label></li>
+    <li><label><input type="checkbox" />Использование css-стилей в
+    компоненте.</label></li>
+    </ul>
+    <h1 id="jsx">JSX</h1>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Преобразование JSX в html
+    (React.createElement)</label></li>
+    <li><label><input type="checkbox" />Использование выражений в JSX {
+    }</label></li>
+    </ul>
+    <h1 id="оптимизации">Оптимизации</h1>
+    <h2 id="кэширование-мемоизация">Кэширование (мемоизация)</h2>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />“Тактическая
+    оптимизация”</label></li>
+    <li><label><input type="checkbox" />Кэширование внутри
+    компонента</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Кэширование функции
+    (useCallback)</label></li>
+    <li><label><input type="checkbox" />Кэширование результата
+    выполнения функции (useMemo)</label></li>
+    <li><label><input type="checkbox" />Массив зависимостей</label></li>
+    </ul></li>
+    <li><label><input type="checkbox" />Кэширование целого
+    компонента</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />React.memo - “пропсы компонента
+    меняются редко - кэшируй этот компонент”</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Кастомный компаратор - сами
+    пишем функцию сравнения пропсов</label></li>
+    </ul></li>
+    <li><label><input type="checkbox" />Пример: большой список
+    элементов, один изменился - остальные нет, кэширование элемента
+    списка полезно.</label></li>
+    </ul></li>
+    </ul>
+    <h2 id="ленивая-загрузка">Ленивая загрузка</h2>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Основной бандл и чанки</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />По умолчанию все модули
+    собираются в единый бандл</label></li>
+    <li><label><input type="checkbox" />Если сборщик видит динамический
+    import компонента - выделяет компонент в отдельный чанк</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />С помощью хинтов можно
+    группировать несколько модулей в один чанк. Хинты специфичны для
+    каждого сборщика, универсального подхода нет</label></li>
+    </ul></li>
+    </ul></li>
+    <li><label><input type="checkbox" />Ленивый компонент ErrorBoundary
+    &gt; Suspense + fallback &gt; React.lazy + import()</label></li>
+    <li><label><input type="checkbox" />Предзагрузка</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Вызов import() при наведении
+    мышки на ссылку / при появлении ссылки во вьюпорте</label></li>
+    <li><label><input type="checkbox" />Если чанк успеет загрузиться,
+    ленивый компонент покажется без fallback’а</label></li>
+    </ul></li>
+    </ul>
+    <h2 id="code-splitting">Code splitting</h2>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />“Стратегическая
+    оптимизация”</label></li>
+    <li><label><input type="checkbox" />Основные 4 стратегии разделения
+    кода</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Маршруты (разные страницы - в
+    отдельных чанках)</label></li>
+    <li><label><input type="checkbox" />Компоненты (табы, модальные
+    окна, виджеты)</label></li>
+    <li><label><input type="checkbox" />Библиотеки (react + react dom +
+    lodash = vendor чанк, main + home = чанк нашего
+    приложения)</label></li>
+    <li><label><input type="checkbox" />Условия (авторизованные
+     неавторизованные пользователи  по роли пользователя)</label></li>
+    </ul></li>
+    <li><label><input type="checkbox" />Плюсы</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Параллельная загрузка нескольких
+    чанков быстрее, чем загрузка одного большого бандла</label></li>
+    <li><label><input type="checkbox" />Кэширование чанка. Сам react +
+    остальные библиотеки при обновлениях логики приложения не менялись
+    =&gt; браузер может его закешировать, а загрузить только наши
+    изменившиеся чанки</label></li>
+    <li><label><input type="checkbox" />CDN - можно вообще не вносить
+    либы в бандл, а подключать через CDN. Если пользователь пользовался
+    другим приложением, которому нужны были такие же либы, то они у него
+    уже закэшированы.</label></li>
+    </ul></li>
+    </ul>
+    <h1 id="типичные-трюки-паттерны">Типичные трюки  паттерны</h1>
+    <h2 id="условный-рендеринг">Условный рендеринг</h2>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Показать  не показать компонент
+    в зависимости от условия ( &amp;&amp; )</label></li>
+    <li><label><input type="checkbox" />Показать разные компоненты в
+    зависимости от условия ( тернарный оператор )</label></li>
+    </ul>
+    <h2 id="hoc-render-props-custom-hooks">HOC + Render Props + Custom
+    Hooks</h2>
+    <h3 id="hoc">HOC</h3>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />HOC - Higher-Order
+    Component.</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Это паттерн, цель которого -
+    “обвязать” исходный компонент дополнительной
+    функциональностью.</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />“Сквозная функциональность”:
+    логирование  телеметрия  кэширование  авторизация  etc</label></li>
+    <li><label><input type="checkbox" />“Множественные дефолты” -
+    снабдить исходный компонент каким-то фиксированным значением для
+    определенных пропсов. Несколько HOC-ов, каждый со своим дефолтом =
+    несколько вариантов пред-конфигурированного компонента</label></li>
+    </ul></li>
+    </ul></li>
+    <li><label><input type="checkbox" />HOC - это функция, которая
+    принимает исходный компонент и возвращает компонент-обертку, который
+    внутри использует исходный.</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Пример на обычных функциях:
+    исходная функция - расчет числа</label></li>
+    </ul></li>
+    </ul>
+    <h3 id="render-props">Render Props</h3>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Основная идея -
+    Компонент-провайдер + Компонент Клиент</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Провайдер реализует какую-то
+    функциональность и например имеет данные, состояние</label></li>
+    <li><label><input type="checkbox" />Клиенту нужна эта
+    функциональность и данные, и он при вызове Провайдера передает ему
+    через рендер-проп функцию с “разметкой” (это может быть не просто
+    JSX, а JSX + какая-то логика)</label></li>
+    <li><label><input type="checkbox" />Провайдер эту функцию вызывает,
+    передавая в нее свои данные</label></li>
+    <li><label><input type="checkbox" />Т.о. клиент как бы получает от
+    провайдера данные и рендерит их в своем контексте</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />В своем контексте, потому что
+    функция рендера создается в контексте Клиента - “чтобы ее передать,
+    ее нужно сначала создать”</label></li>
+    </ul></li>
+    <li><label><input type="checkbox" />Клиент и Провайдер при этом
+    являются отдельными компонентами, т.е. каждый из них - это отдельный
+    fiber-узел</label></li>
+    </ul></li>
+    <li><label><input type="checkbox" />Render Props - это старая школа
+    кастомных хуков, когда они еще не появились</label></li>
+    </ul>
+    <h2 id="прочие">Прочие</h2>
+    <ul>
+    <li>IIFE в useEffect для объявления и вызова async-функций</li>
+    </ul>
+    <h1 id="хуки">Хуки</h1>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Правила использования
+    хуков</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Используются только на верхнем
+    уровне компонента (т.е. не в циклах, не в условиях, не внутри других
+    хуков, а только непосредственно в теле компонента)</label></li>
+    </ul></li>
+    <li><label><input type="checkbox" />Кастомные хуки</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Нужны чтобы инкапсулировать
+    логику, в которой используются стандартные хуки</label></li>
+    <li><label><input type="checkbox" />Правило именования кастомных
+    хуков (префикс use)</label></li>
+    </ul></li>
+    </ul>
+    <h1 id="архитектура-react">Архитектура React</h1>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Fiber-дерево,
+    fiber-узлы</label></li>
+    <li><label><input type="checkbox" />Цикл обновления компонента
+    “Рендеринг &gt; Реконсиляция &gt; Коммит”</label></li>
+    <li><label><input type="checkbox" />Инкрементальный
+    рендеринг</label></li>
+    </ul>
+    <h1 id="события-и-их-обработчики">События и их обработчики</h1>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Навешивание обработчика на
+    событие компонента</label></li>
+    <li><label><input type="checkbox" />Объект события</label>
+    <ul class="task-list">
+    <li><label><input type="checkbox" />Всплытие события (event
+    propagation)</label></li>
+    <li><label><input type="checkbox" />Дефолтное поведение,
+    предотвращение дефолтного поведения.</label></li>
+    </ul></li>
+    </ul>
+    <h1 id="инфраструктура">Инфраструктура</h1>
+    <h2 id="переменные-окружения">Переменные окружения</h2>
+    <ul>
+    <li>Значение
+    <ul>
+    <li>При запуске приложения на локальном сервере - вычисляется на
+    лету</li>
+    <li>При сборке - вычисляется и инлайнится в код</li>
+    </ul></li>
+    <li>Правила пользования
+    <ul>
+    <li>Не хранить чувствительные данные в SPA</li>
+    </ul></li>
+    </ul>
+    <h1 id="без-темы">Без темы</h1>
+    <ul>
+    <li>Отличия путей в fetch и путей до картинок
+    <ul>
+    <li>Откуда отсчитывается относительный и абсолютный путь
+    <ul>
+    <li>На локальном сервере и после деплоя</li>
+    </ul></li>
+    <li>base</li>
+    <li>Корень это протокол + хост + порт. Корень и origin - это
+    синонимы.</li>
+    <li>Относительный путь отсчитывается от текущей страницы</li>
+    <li>Абсолютный путь отсчитывается от корня</li>
+    </ul></li>
+    </ul>
+    <h1 id="todo">TODO</h1>
+    <p>useTransition, useDeferredValue</p>
+  </section>
+</body>
+</html>

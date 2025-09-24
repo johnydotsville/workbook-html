@@ -3,8 +3,9 @@ const path = require('path');
 
 
 
+
 async function buildFileTree(rootPath) {
-  async function traverse(currentPath) {
+  async function traverse(currentPath, inheritedTemplate = null, inheritedStyle = null) {
     const stats = await fs.promises.stat(currentPath);
     const name = path.basename(currentPath);
     
@@ -12,20 +13,34 @@ async function buildFileTree(rootPath) {
       name: name,
       path: currentPath,
       type: stats.isDirectory() ? 'directory' : 'file',
-      relativePath: path.relative(rootPath, currentPath)
+      relativePath: path.relative(rootPath, currentPath),
+      template: inheritedTemplate,
+      style: inheritedStyle
     };
     
     if (stats.isDirectory()) {
       const items = await fs.promises.readdir(currentPath);
       node.children = [];
       
+      node.template = inheritedTemplate;
+      if (items.includes('template.html')) {
+        node.template = path.join(currentPath, 'template.html');
+      } 
+
+      node.style = inheritedStyle;
+      if (items.includes('style.css')) {
+        node.style = path.join(currentPath, 'style.css');
+      }
+      
       for (const item of items) {
+        // Пропускаем сами файлы шаблонов, они уже учтены
+        if (item === 'template.html' || item === 'style.css') continue;
+        
         const itemPath = path.join(currentPath, item);
-        const childNode = await traverse(itemPath);
+        const childNode = await traverse(itemPath, node.template, node.style);
         node.children.push(childNode);
       }
       
-      // Сортируем: сначала папки, потом файлы
       node.children.sort((a, b) => {
         if (a.type === b.type) {
           return a.name.localeCompare(b.name);
@@ -67,7 +82,7 @@ async function convertTree(tree, outputRoot) {
       const htmlFilePath = path.join(currentOutputPath, htmlFileName);
       const mdFilePath = node.path;
       
-      await convertMdToHtml(mdFilePath, htmlFilePath);
+      await convertMdToHtml(mdFilePath, htmlFilePath, node.template, node.style);
     }
   }
   
@@ -78,17 +93,39 @@ async function convertTree(tree, outputRoot) {
 
 
 
-async function convertMdToHtml(mdFilePath, htmlFilePath) {
-  console.log(`Конвертируем: ${mdFilePath} -> ${htmlFilePath}`);
+async function convertMdToHtml(mdFilePath, htmlFilePath, templateFilePath, styleFilePath) {
   const { spawn } = require('child_process');
 
-  const pandoc = spawn('pandoc', ['-f', 'markdown', '-t', 'html', '-o', htmlFilePath]);
+  const pandoc = spawn('pandoc', [
+    '-f', 'markdown', 
+    '-t', 'html', 
+    '--standalone', 
+    '--template', templateFilePath,
+    '-o', htmlFilePath
+  ]);
 
   const inputStream = fs.createReadStream(mdFilePath);
   inputStream.pipe(pandoc.stdin);
 
   pandoc.on('close', (code) => {
-    console.log(`Процесс завершен с кодом: ${code}`);
+    if (code === 0) {
+      console.log(`✅ ${mdFilePath} успешно сконвертирован`);
+      try {
+        const styleContent = fs.readFileSync(styleFilePath, 'utf8');
+        let htmlContent = fs.readFileSync(htmlFilePath, 'utf8');
+        
+        htmlContent = htmlContent.replace(
+          /<style><\/style>/i, 
+          `<style>${styleContent}</style>`
+        );
+        
+        fs.writeFileSync(htmlFilePath, htmlContent, 'utf8');
+      } catch (error) {
+        console.error('Ошибка при обработке файлов:', error);
+      }
+    } else {
+      console.log(`❌ Не удалось сконвертировать ${mdFilePath}`);
+    }
   });
 
   pandoc.stderr.on('data', (data) => {
