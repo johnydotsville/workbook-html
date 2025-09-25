@@ -136,16 +136,32 @@ async function convertMdToHtml(mdFilePath, htmlFilePath, templateFilePath, style
 
 
 
+function insertToc(tocScriptStuff, targetFolder) {
+  fs.cpSync(tocScriptStuff, targetFolder, { recursive: true });
+}
+
+
+function saveTree(tree, saveTo) {
+  fs.writeFileSync(path.join(saveTo, 'notesTree.json'), JSON.stringify(tree, null, 2));
+}
+
+
+
+
 async function main() {
   try {
     const scriptDir = __dirname;
     const notesFolder = path.join(scriptDir, 'notes');
+    const targetFolder = path.join(scriptDir, 'docs');
 
     const tree = await buildFileTree(notesFolder);
     // console.log(JSON.stringify(tree, null, 2));
+    saveTree(tree, targetFolder);
 
-    const targetFolder = path.join(scriptDir, 'docs');
     await convertTree(tree, targetFolder);
+
+    const tocScriptStuff = path.join(scriptDir, 'toc');
+    insertToc(tocScriptStuff, targetFolder);
 
   } catch (error) {
     console.error('Ошибка:', error);
