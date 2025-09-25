@@ -1,0 +1,100 @@
+{
+  "name": "notes",
+  "path": "E:\\pet-projs\\workbook-html\\notes",
+  "type": "directory",
+  "relativePath": "",
+  "template": "E:\\pet-projs\\workbook-html\\notes\\template.html",
+  "style": "E:\\pet-projs\\workbook-html\\notes\\style.css",
+  "children": [
+    {
+      "name": "javascript",
+      "path": "E:\\pet-projs\\workbook-html\\notes\\javascript",
+      "type": "directory",
+      "relativePath": "javascript",
+      "template": "E:\\pet-projs\\workbook-html\\notes\\template.html",
+      "style": "E:\\pet-projs\\workbook-html\\notes\\style.css",
+      "children": [
+        {
+          "name": "arrays",
+          "path": "E:\\pet-projs\\workbook-html\\notes\\javascript\\arrays",
+          "type": "directory",
+          "relativePath": "javascript\\arrays",
+          "template": "E:\\pet-projs\\workbook-html\\notes\\template.html",
+          "style": "E:\\pet-projs\\workbook-html\\notes\\style.css",
+          "children": [
+            {
+              "name": "index.md",
+              "path": "E:\\pet-projs\\workbook-html\\notes\\javascript\\arrays\\index.md",
+              "type": "file",
+              "relativePath": "javascript\\arrays\\index.md",
+              "template": "E:\\pet-projs\\workbook-html\\notes\\template.html",
+              "style": "E:\\pet-projs\\workbook-html\\notes\\style.css",
+              "extension": ".md",
+              "size": 4373
+            }
+          ]
+        },
+        {
+          "name": "objects",
+          "path": "E:\\pet-projs\\workbook-html\\notes\\javascript\\objects",
+          "type": "directory",
+          "relativePath": "javascript\\objects",
+          "template": "E:\\pet-projs\\workbook-html\\notes\\template.html",
+          "style": "E:\\pet-projs\\workbook-html\\notes\\style.css",
+          "children": [
+            {
+              "name": "index.md",
+              "path": "E:\\pet-projs\\workbook-html\\notes\\javascript\\objects\\index.md",
+              "type": "file",
+              "relativePath": "javascript\\objects\\index.md",
+              "template": "E:\\pet-projs\\workbook-html\\notes\\template.html",
+              "style": "E:\\pet-projs\\workbook-html\\notes\\style.css",
+              "extension": ".md",
+              "size": 6380
+            }
+          ]
+        },
+        {
+          "name": "strings",
+          "path": "E:\\pet-projs\\workbook-html\\notes\\javascript\\strings",
+          "type": "directory",
+          "relativePath": "javascript\\strings",
+          "template": "E:\\pet-projs\\workbook-html\\notes\\template.html",
+          "style": "E:\\pet-projs\\workbook-html\\notes\\style.css",
+          "children": [
+            {
+              "name": "index.md",
+              "path": "E:\\pet-projs\\workbook-html\\notes\\javascript\\strings\\index.md",
+              "type": "file",
+              "relativePath": "javascript\\strings\\index.md",
+              "template": "E:\\pet-projs\\workbook-html\\notes\\template.html",
+              "style": "E:\\pet-projs\\workbook-html\\notes\\style.css",
+              "extension": ".md",
+              "size": 2749
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "react",
+      "path": "E:\\pet-projs\\workbook-html\\notes\\react",
+      "type": "directory",
+      "relativePath": "react",
+      "template": "E:\\pet-projs\\workbook-html\\notes\\template.html",
+      "style": "E:\\pet-projs\\workbook-html\\notes\\style.css",
+      "children": [
+        {
+          "name": "index.md",
+          "path": "E:\\pet-projs\\workbook-html\\notes\\react\\index.md",
+          "type": "file",
+          "relativePath": "react\\index.md",
+          "template": "E:\\pet-projs\\workbook-html\\notes\\template.html",
+          "style": "E:\\pet-projs\\workbook-html\\notes\\style.css",
+          "extension": ".md",
+          "size": 13794
+        }
+      ]
+    }
+  ]
+}

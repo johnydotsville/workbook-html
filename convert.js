@@ -137,12 +137,16 @@ async function convertMdToHtml(mdFilePath, htmlFilePath, templateFilePath, style
 
 
 function insertToc(tocScriptStuff, targetFolder) {
-  fs.cpSync(tocScriptStuff, targetFolder, { recursive: true });
+  const tocTemplateFilename = 'toc-template.html';
+  const tocScriptFilename = 'toc-script.js';
+
+  fs.copyFileSync(path.join(tocScriptStuff, tocTemplateFilename), path.join(targetFolder, 'index.html'));
+  fs.copyFileSync(path.join(tocScriptStuff, tocScriptFilename), path.join(targetFolder, tocScriptFilename));
 }
 
 
 function saveTree(tree, saveTo) {
-  fs.writeFileSync(path.join(saveTo, 'notesTree.json'), JSON.stringify(tree, null, 2));
+  fs.writeFileSync(path.join(saveTo, 'noteTree.json'), JSON.stringify(tree, null, 2));
 }
 
 
